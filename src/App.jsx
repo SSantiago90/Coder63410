@@ -1,31 +1,47 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import codersvg from "./assets/ch.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const titulo = "Clase 3 - JSX";
+  const userFavoriteColor = "rgb(255, 50, 80)";
+
+  function userGreeting(name) {
+    //const saludo = "Bienvenido " + name + "a mi app.";
+    const saludo = `Bienvenido ${name} a mi app`;
+    return saludo;
+  }
+
+  function isUserLoggedIn() {
+    return false;
+  }
+
+  function logIn() {
+    alert("Bienvenido!");
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <h1> {titulo} </h1>
+      <img src={codersvg} alt="Coder logo" />
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <p>{userGreeting("Franco")}</p>
       </div>
+
       <p className="read-the-docs">Hola react ya instalé Vite!</p>
+
+      <button
+        onClick={logIn}
+        disabled={isUserLoggedIn()}
+        className="best-button-ever"
+        style={{
+          backgroundColor: userFavoriteColor,
+          color: "white",
+          textTransform: "uppercase",
+          padding: "15px",
+        }}
+      >
+        Comprar
+      </button>
     </>
   );
 }
