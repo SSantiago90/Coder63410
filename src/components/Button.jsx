@@ -16,7 +16,11 @@ export default function Button(props) {
   }
 
   return (
-    <button style={{ backgroundColor: color }} disabled={disabled}>
+    <button
+      className="btn"
+      style={{ backgroundColor: color }}
+      disabled={disabled}
+    >
       {displayText}
     </button>
   );

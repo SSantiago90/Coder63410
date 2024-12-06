@@ -1,8 +1,10 @@
 import codersvg from "./assets/ch.svg";
-import "./App.css";
 import Button from "./components/Button";
 import CardProduct from "./components/CardProduct";
 import FlexContainer from "./components/FlexContainer";
+import "bootstrap/dist/css/bootstrap.min.css";
+import * as bootstrap from "bootstrap";
+import Title from "./components/Title";
 
 function App() {
   const titulo = "Clase 3 - JSX";
@@ -76,6 +78,13 @@ function App() {
             img="/images/javascript.bmp"
           />
         </FlexContainer>
+      </section>
+      <section>
+        <Title size={52}>
+          <h3>Afterclass - CSS y Props</h3>
+        </Title>
+        {/* button, h1, h2, p, label*/}
+        {/* Podemos usar esta manera ? sin el style y sin la class? */}
       </section>
     </>
   );
