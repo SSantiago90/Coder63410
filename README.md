@@ -5,6 +5,14 @@
 - NodeJS versión 18+
 - Visual Studio Code
 
+## Clonar proyecto
+
+`git clone https://github.com/SSantiago90/Coder63410.git`
+
+`npm install`
+
+`npm run dev`
+
 ## Crear proyecto con Vite
 
 #### Comandos para la terminal
