@@ -80,9 +80,7 @@ function App() {
         </FlexContainer>
       </section>
       <section>
-        <Title size={52}>
-          <h3>Afterclass - CSS y Props</h3>
-        </Title>
+        <Title size={52}>Afterclass - CSS y Props</Title>
         {/* button, h1, h2, p, label*/}
         {/* Podemos usar esta manera ? sin el style y sin la class? */}
       </section>
