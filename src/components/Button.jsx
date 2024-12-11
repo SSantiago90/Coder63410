@@ -1,27 +1,22 @@
-// Componentes de funcion // function components 16...
-// Componentes de Class
+import { useState } from "react";
 
-// * PROPS
 export default function Button(props) {
-  const { text, color, disabled, children } = props; // destructuring
-  // const text = props.text;
-  // clase / style
+  const { color, disabled, children } = props;
 
-  //const displayText = children === undefined ? text : children;
-  let displayText;
-  if (children === undefined) {
-    displayText = text;
-  } else {
-    displayText = children;
-  }
+  const [isDisabled, setIsDisabled] = useState(disabled);
+  const [colorState, setColorState] = useState(color);
+  // ! isDisabled = false NOOOO
 
   return (
-    <button style={{ backgroundColor: color }} disabled={disabled}>
-      {displayText}
+    <button
+      onClick={() => {
+        setColorState("orange");
+        setIsDisabled("true");
+      }}
+      style={{ backgroundColor: colorState }}
+      disabled={isDisabled}
+    >
+      {children}
     </button>
   );
 }
-
-// unedefined -> false
-// null -> false
-// falsy
