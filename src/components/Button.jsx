@@ -5,7 +5,6 @@ export default function Button(props) {
 
   const [isDisabled, setIsDisabled] = useState(disabled);
   const [colorState, setColorState] = useState(color);
-  // ! isDisabled = false NOOOO
 
   return (
     <button

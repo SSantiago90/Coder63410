@@ -1,4 +1,6 @@
 import Button from "./Button";
+import "./CardProduct.css";
+
 function CardProduct(props) {
   const { price, title, text, img } = props;
 

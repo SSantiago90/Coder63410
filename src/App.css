@@ -12,36 +12,6 @@
   color: #9fe4b1;
 }
 
-/* Product.css */
-.card {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.card-body {
-  padding: 16px;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  margin-bottom: 8px;
-}
-
-.card-text {
-  font-size: 0.875rem;
-  margin-bottom: 12px;
-  color: #555;
-}
-
-.card-price {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #e91e63;
-  margin-bottom: 16px;
-}
-
 div {
   margin: 0.25rem auto;
 }

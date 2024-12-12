@@ -22,9 +22,9 @@ function ItemCount() {
 
   return (
     <div>
-      <button onClick={handleAdd}>➕</button>
+      <button onClick={handleAdd}>+</button>
       <span>{count}</span>
-      <button onClick={handleSubstract}>➖</button>
+      <button onClick={handleSubstract}>-</button>
     </div>
   );
 }
