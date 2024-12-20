@@ -1,8 +1,8 @@
 import Button from "./Button";
 import "./CardProduct.css";
 
-function CardProduct(props) {
-  const { price, title, text, img, id } = props;
+function Item(props) {
+  const { price, title, text, img } = props;
 
   return (
     <div className="card">
@@ -19,5 +19,5 @@ function CardProduct(props) {
   );
 }
 
-export default CardProduct;
+export default Item;
 //rfce

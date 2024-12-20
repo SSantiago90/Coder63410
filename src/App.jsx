@@ -8,6 +8,7 @@ function App() {
       <div id="ejemploentrega">
         {/* <Navbar/> -> <CartWidget /> --> 🛒(5) */}
         <ItemListContainer greeting="Compras navideñas" />
+        {/* ItemDetailContainer */}
       </div>
       <section>
         <ItemCount />

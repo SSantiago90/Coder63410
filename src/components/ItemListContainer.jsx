@@ -1,7 +1,6 @@
-import CardProduct from "./CardProduct";
-import FlexContainer from "./FlexContainer";
 import getAsyncData from "../data/getAsyncData";
 import { useState, useEffect } from "react";
+import ItemList from "./ItemList";
 
 function ItemListContainer(props) {
   const [products, setProducts] = useState([]);
@@ -16,21 +15,9 @@ function ItemListContainer(props) {
       .catch((error) => alert(error));
   }, []);
 
-  const list = products.map((prod) => (
-    <CardProduct
-      key={prod.id}
-      id={prod.id}
-      title={prod.title}
-      price={prod.price}
-      text={prod.category}
-      img={prod.img}
-    />
-  ));
-
   return (
     <div>
-      <h2>{props.greeting}</h2>
-      <FlexContainer>{list}</FlexContainer>
+      <ItemList greeting={props.greeting} products={products} />
     </div>
   );
 }

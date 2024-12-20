@@ -1,14 +1,12 @@
 import products from "./data"
 
 function getAsyncData() {
-  console.log("Solicitando datos")
-  
+  console.log("Solicitando datos")  
   const promiseData = new Promise( (resolve, reject) => { 
-    const errorFatal = true;
+    const errorFatal = false;
 
     setTimeout( () => {
       if (errorFatal) reject("Algo salió mal!!!!")
-
       console.log("Promesa Terminada")
       resolve(products)
     }, 2000)     
@@ -19,10 +17,5 @@ function getAsyncData() {
   return promiseData;
 }
 
-export default getAsyncData;
-// React
-/* getAsyncData()
-  .then( (respuesta) => { console.log(respuesta)})
-  .catch( (error) => { console.log(error)}) //handling
 
-console.log("Sigo trabajndo")  */
+export default getAsyncData;
