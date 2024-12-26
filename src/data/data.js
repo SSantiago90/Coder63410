@@ -4,7 +4,7 @@ const products = [
     title: 'Árbol de Navidad Artificial',
     price: 150,
     stock: 20,
-    img: 'arbol_navidad.jpg',
+    img: `https://picsum.photos/seed/1/240/180`,
     category: 'Decoración'
   },
   {
@@ -12,7 +12,7 @@ const products = [
     title: 'Luces Navideñas Multicolor',
     price: 35,
     stock: 50,
-    img: 'luces_navidad.jpg',
+    img: `https://picsum.photos/seed/2/240/180`,
     category: 'Iluminación'
   },
   {
@@ -20,7 +20,7 @@ const products = [
     title: 'Guirnalda Navideña con Bolas',
     price: 25,
     stock: 30,
-    img: 'guirnalda_navidad.jpg',
+    img: `https://picsum.photos/seed/3/240/180`,
     category: 'Decoración'
   },
   {
@@ -28,7 +28,7 @@ const products = [
     title: 'Muñeco de Nieve Inflable',
     price: 80,
     stock: 15,
-    img: 'muneco_nieve.jpg',
+    img: `https://picsum.photos/seed/4/240/180`,
     category: 'Decoración Exterior'
   },
   {
@@ -36,7 +36,7 @@ const products = [
     title: 'Calcetines Navideños',
     price: 10,
     stock: 100,
-    img: 'calcetines_navidad.jpg',
+    img: `https://picsum.photos/seed/5/240/180`,
     category: 'Regalos'
   },
   {
@@ -44,7 +44,7 @@ const products = [
     title: 'Centro de Mesa Navideño',
     price: 45,
     stock: 25,
-    img: 'centro_mesa.jpg',
+    img: `https://picsum.photos/seed/6/240/180`,
     category: 'Decoración'
   },
   {
@@ -52,7 +52,7 @@ const products = [
     title: 'Adorno Navideño para Puerta',
     price: 20,
     stock: 40,
-    img: 'adorno_puerta.jpg',
+    img: `https://picsum.photos/seed/7/240/180`,
     category: 'Decoración Exterior'
   },
   {
@@ -60,7 +60,7 @@ const products = [
     title: 'Vela Aromática Navideña',
     price: 12,
     stock: 60,
-    img: 'vela_aromatica.jpg',
+    img: `https://picsum.photos/seed/8/240/180`,
     category: 'Ambientación'
   },
   {
@@ -68,7 +68,7 @@ const products = [
     title: 'Corona de Adviento',
     price: 30,
     stock: 20,
-    img: 'corona_adviento.jpg',
+    img: `https://picsum.photos/seed/9/240/180`,
     category: 'Decoración'
   },
   {
@@ -76,7 +76,7 @@ const products = [
     title: 'Belen Navideño',
     price: 50,
     stock: 15,
-    img: 'belen_navidad.jpg',
+    img: `https://picsum.photos/seed/10/240/180`,
     category: 'Decoración'
   },
   {
@@ -84,7 +84,7 @@ const products = [
     title: 'Cojines Navideños',
     price: 15,
     stock: 30,
-    img: 'cojines_navidad.jpg',
+    img: `https://picsum.photos/seed/11/240/180`,
     category: 'Textiles'
   },
   {
@@ -92,7 +92,7 @@ const products = [
     title: 'Mantel Navideño',
     price: 25,
     stock: 20,
-    img: 'mantel_navidad.jpg',
+    img: `https://picsum.photos/seed/12/240/180`,
     category: 'Textiles'
   },
   {
@@ -100,7 +100,7 @@ const products = [
     title: 'Papá Noel Gigante',
     price: 120,
     stock: 10,
-    img: 'papa_noel_gigante.jpg',
+    img: `https://picsum.photos/seed/13/240/180`,
     category: 'Decoración Exterior'
   },
   {
@@ -108,7 +108,7 @@ const products = [
     title: 'Juego de Bolas Navideñas',
     price: 35,
     stock: 40,
-    img: 'bolas_navidad.jpg',
+    img: `https://picsum.photos/seed/14/240/180`,
     category: 'Decoración'
   },
   {
@@ -116,7 +116,7 @@ const products = [
     title: 'Tarjeta de Navidad',
     price: 2,
     stock: 100,
-    img: 'tarjeta_navidad.jpg',
+    img: `https://picsum.photos/seed/15/240/180`,
     category: 'Regalos'
   }
 ];

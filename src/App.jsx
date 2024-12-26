@@ -1,5 +1,5 @@
 import "./App.css";
-import ItemCount from "./components/ItemCount";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
 
 function App() {
@@ -8,11 +8,9 @@ function App() {
       <div id="ejemploentrega">
         {/* <Navbar/> -> <CartWidget /> --> 🛒(5) */}
         <ItemListContainer greeting="Compras navideñas" />
-        {/* ItemDetailContainer */}
+        <hr />
+        <ItemDetailContainer />
       </div>
-      <section>
-        <ItemCount />
-      </section>
     </>
   );
 }
