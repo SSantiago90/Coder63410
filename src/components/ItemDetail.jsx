@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function ItemDetail(props) {
   const { price, title, description, text, img } = props;
 
@@ -12,6 +14,10 @@ function ItemDetail(props) {
         </div>
         <p>{description}</p>
         <button>Agregar al carrito</button>
+      </div>
+      <div>
+        <p>Productos similares</p>
+        <Link to="/item/10">Producto 10</Link>
       </div>
     </div>
   );

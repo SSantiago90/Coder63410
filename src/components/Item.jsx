@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import Button from "./Button";
 import "./CardProduct.css";
 
 function Item(props) {
-  const { price, title, text, img } = props;
+  const { price, title, text, img, id } = props;
 
   return (
     <div className="card">
@@ -13,7 +14,9 @@ function Item(props) {
         <div>
           <p className="card-price">$ {price}</p>
         </div>
-        <Button>Agregar al carrito</Button> {/* children */}
+        <Link to={`/item/${id}`}>
+          <Button>Ver Detalle</Button>
+        </Link>
       </div>
     </div>
   );
