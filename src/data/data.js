@@ -5,7 +5,7 @@ const products = [
     price: 150,
     stock: 20,
     img: `https://picsum.photos/seed/1/240/180`,
-    category: 'Decoración'
+    category: 'Decoracion'
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const products = [
     price: 35,
     stock: 50,
     img: `https://picsum.photos/seed/2/240/180`,
-    category: 'Iluminación'
+    category: 'Iluminacion'
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const products = [
     price: 25,
     stock: 30,
     img: `https://picsum.photos/seed/3/240/180`,
-    category: 'Decoración'
+    category: 'Decoracion'
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const products = [
     price: 80,
     stock: 15,
     img: `https://picsum.photos/seed/4/240/180`,
-    category: 'Decoración Exterior'
+    category: 'Decoracion Exterior'
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const products = [
     price: 45,
     stock: 25,
     img: `https://picsum.photos/seed/6/240/180`,
-    category: 'Decoración'
+    category: 'Decoracion'
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const products = [
     price: 20,
     stock: 40,
     img: `https://picsum.photos/seed/7/240/180`,
-    category: 'Decoración Exterior'
+    category: 'Decoracion Exterior'
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ const products = [
     price: 12,
     stock: 60,
     img: `https://picsum.photos/seed/8/240/180`,
-    category: 'Ambientación'
+    category: 'Ambientacion'
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ const products = [
     price: 30,
     stock: 20,
     img: `https://picsum.photos/seed/9/240/180`,
-    category: 'Decoración'
+    category: 'Decoracion'
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ const products = [
     price: 50,
     stock: 15,
     img: `https://picsum.photos/seed/10/240/180`,
-    category: 'Decoración'
+    category: 'Decoracion'
   },
   {
     id: 11,
@@ -101,7 +101,7 @@ const products = [
     price: 120,
     stock: 10,
     img: `https://picsum.photos/seed/13/240/180`,
-    category: 'Decoración Exterior'
+    category: 'Decoracion Exterior'
   },
   {
     id: 14,
@@ -109,7 +109,7 @@ const products = [
     price: 35,
     stock: 40,
     img: `https://picsum.photos/seed/14/240/180`,
-    category: 'Decoración'
+    category: 'Decoracion'
   },
   {
     id: 15,

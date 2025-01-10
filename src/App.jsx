@@ -10,10 +10,15 @@ function App() {
       <NavBar />
 
       <Routes>
-        <Route path="/" element={<ItemListContainer greeting="Compras navideñas" />}   />
-        <Route path="/category/:catid" element={ <ItemListContainer greeting="Compras por categoría"/>} />
+        <Route
+          path="/"
+          element={<ItemListContainer greeting="Compras navideñas" />}
+        />
+        <Route
+          path="/category/:catid"
+          element={<ItemListContainer greeting="Compras por categoría" />}
+        />
         <Route path="/item/:id" element={<ItemDetailContainer />} />
-
       </Routes>
 
       <footer>
@@ -21,15 +26,6 @@ function App() {
       </footer>
     </BrowserRouter>
   );
-}
-
-{
-  /* <div id="ejemploentrega">
-<NavBar />
-<ItemListContainer greeting="Compras navideñas" />
-<hr />
-<ItemDetailContainer />
-</div> */
 }
 
 export default App;

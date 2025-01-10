@@ -9,7 +9,7 @@ function getAsyncData() {
       if (errorFatal) reject("Algo salió mal!!!!")
       console.log("Promesa Terminada")
       resolve(products)
-    }, 2000)     
+    }, 500)     
   })
 
   console.log("Promesa generada.")
