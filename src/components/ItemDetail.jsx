@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
 
 function ItemDetail(props) {
@@ -9,13 +8,13 @@ function ItemDetail(props) {
   }
 
   return (
-    <div className="">
+    <div>
       <img src={img} width="150" height="150" alt="product img" />
-      <div className="">
-        <h3 className="">{title}</h3>
-        <p className="">{text}</p>
+      <div>
+        <h3>{title}</h3>
+        <p>{text}</p>
         <div>
-          <p className="">$ {price}</p>
+          <p>$ {price}</p>
         </div>
         <p>{description}</p>
       </div>
