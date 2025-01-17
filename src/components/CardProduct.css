@@ -20,6 +20,10 @@
   padding: 16px;
 }
 
+.card_accent {
+  border: solid 3px #8c3636;
+}
+
 .card-price {
   font-size: 1.2rem;
   font-weight: bolder;

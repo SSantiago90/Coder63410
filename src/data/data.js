@@ -5,7 +5,8 @@ const products = [
     price: 150,
     stock: 20,
     img: `https://picsum.photos/seed/1/240/180`,
-    category: 'Decoracion'
+    category: 'Decoracion',
+    discount: 50,
   },
   {
     id: 2,
@@ -13,7 +14,8 @@ const products = [
     price: 35,
     stock: 50,
     img: `https://picsum.photos/seed/2/240/180`,
-    category: 'Iluminacion'
+    category: 'Iluminacion',
+    discount: 20,
   },
   {
     id: 3,
@@ -21,7 +23,8 @@ const products = [
     price: 25,
     stock: 30,
     img: `https://picsum.photos/seed/3/240/180`,
-    category: 'Decoracion'
+    category: 'Decoracion',
+    freeDelivery: true,
   },
   {
     id: 4,
@@ -29,7 +32,7 @@ const products = [
     price: 80,
     stock: 15,
     img: `https://picsum.photos/seed/4/240/180`,
-    category: 'Decoracion Exterior'
+    category: 'Decoracion Exterior',    
   },
   {
     id: 5,

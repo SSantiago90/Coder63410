@@ -14,7 +14,7 @@ export default function NavBar() {
         </li>
 
         <li>
-          <NavLink to="/item">Detalle</NavLink>
+          <NavLink to="/cart">Carrito</NavLink>
         </li>
         <li>
           <NavLink to="/category/textiles">Textiles</NavLink>

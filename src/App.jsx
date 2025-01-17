@@ -5,15 +5,18 @@ import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContextProvider } from "./context/cartContext";
+import { useState } from "react";
+import CartContainer from "./components/CartContainer";
 
 function App() {
-  // 2. Renderizamos el context.Provider
+  const [estado, setEstado] = useState(true);
 
-  // 3. Le damos un valor (value) al provider
   return (
     <CartContextProvider>
       <BrowserRouter>
         <NavBar />
+        <button onClick={() => setEstado(!estado)}>Render</button>
+
         <Routes>
           <Route
             path="/"
@@ -24,6 +27,7 @@ function App() {
             element={<ItemListContainer greeting="Compras por categoría" />}
           />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<CartContainer />} />
         </Routes>
         <footer>
           <small>Created by Coderhouse 2025.</small>

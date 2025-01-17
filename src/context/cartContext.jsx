@@ -1,13 +1,10 @@
 // * 1. Crear un Context -> createContext
 import { createContext, useState } from "react";
 
-const cartContext = createContext("carrito");
+const cartContext = createContext({ cartItems: [] });
 
 export function CartContextProvider(props) {
-  const [cartItems, setCartItems] = useState([
-    { id: 0, item: 1, count: 20 },
-    { id: 10, item: 2, count: 4 },
-  ]);
+  const [cartItems, setCartItems] = useState([]);
 
   function removeItem(id) {
     //cartItems.find // { item: 2, count: 4 },
@@ -17,9 +14,10 @@ export function CartContextProvider(props) {
   }
 
   function addItem({ price, id, title, img, count }) {
-    //const copyCartItems = [...cartItems];
+    const copyCartItems = [...cartItems];
     //const copyCartItems = cartItems.map(item => item);
-    const copyCartItems = JSON.parse(JSON.stringify(cartItems));
+    //const copyCartItems = JSON.parse(JSON.stringify(cartItems));
+
     copyCartItems.push({
       id: id,
       title: title,
@@ -52,7 +50,6 @@ export function CartContextProvider(props) {
         countItemsInCart,
         addItem,
         removeItem,
-        name: "carrito de compras",
       }}
     >
       {props.children}

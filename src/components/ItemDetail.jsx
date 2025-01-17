@@ -1,14 +1,17 @@
 import ItemCount from "./ItemCount";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import cartContext from "../context/cartContext";
 
 function ItemDetail(props) {
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+
   const { price, title, description, text, img, id, stock } = props;
   const { addItem } = useContext(cartContext);
 
   function onSubmitCount(count) {
     console.log(`Agregaste ${count} unidades al carrito`);
     addItem({ id, price, title, count, img });
+    setIsAddedToCart(true);
   }
 
   return (
@@ -23,7 +26,11 @@ function ItemDetail(props) {
         <p>{description}</p>
       </div>
       <div>
-        <ItemCount onSubmitCount={onSubmitCount} max={stock} />
+        {isAddedToCart ? (
+          <button>Ver Carrito</button>
+        ) : (
+          <ItemCount onSubmitCount={onSubmitCount} max={stock} />
+        )}
       </div>
     </div>
   );
