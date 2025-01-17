@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import cartContext from "../context/cartContext";
+import cartContext from "../context/cartContext.jsx";
 
 function CartContainer() {
   const { cartItems, removeItem } = useContext(cartContext);
@@ -18,7 +18,7 @@ function CartContainer() {
             <h3>{item.title}</h3>
             <p>Precio: ${item.price}</p>
             <p>Unidades: {item.count}</p>
-            <button onClick={() => removeItem(item.id)}>Eliminar</button>
+            <button onClick={() => removeItem(item.id)}>-liminar</button>
           </div>
           <hr />
         </>

@@ -1,15 +1,13 @@
-import { useContext } from "react";
-import cartContext from "../context/cartContext";
-
+import { useCart } from "../context/cartContext";
 export default function CartWidget() {
-  //4. Conectamos un componente al context (useContext())
-  const context = useContext(cartContext);
-  console.log("Context--->", context);
+  const context = useCart();
 
   return (
     <div className="cart-icon">
       🛒
-      <span className="cart-count">{context.countItemsInCart()}</span>
+      {context.countItemsInCart() > 0 && (
+        <span className="cart-count">{context.countItemsInCart()}</span>
+      )}
     </div>
   );
 }

@@ -1,60 +1,49 @@
-// * 1. Crear un Context -> createContext
-import { createContext, useState } from "react";
+import { useContext, useState, createContext } from "react";
 
-const cartContext = createContext({ cartItems: [] });
+const cartContext = createContext(null);
 
 export function CartContextProvider(props) {
   const [cartItems, setCartItems] = useState([]);
 
-  function removeItem(id) {
-    //cartItems.find // { item: 2, count: 4 },
-    //cartItems.findIndex(10) //  1 -> splice
-    const newCartState = cartItems.filter((item) => item.id !== id);
+  function addItem(itemInfo) {
+    // Antes de agregar un item
+    // -> verificamos que no exista previamente
+    const isInCart = cartItems.some((item) => item.id === itemInfo.id);
+    // find -> devuelve el objeto encontrado / undefined
+    // some -> devuelve true/false
+    // findIndex -> devuelve el indice
+
+    const newCartState = [...cartItems];
+
+    if (!isInCart) {
+      newCartState.push(itemInfo);
+    }
+    // Si ya existia -> actualizamos su "count"
+    else {
+      const indexInCart = cartItems.findIndex(
+        (item) => item.id === itemInfo.id
+      );
+      newCartState[indexInCart].count += itemInfo.count;
+    }
+
     setCartItems(newCartState);
   }
 
-  function addItem({ price, id, title, img, count }) {
-    const copyCartItems = [...cartItems];
-    //const copyCartItems = cartItems.map(item => item);
-    //const copyCartItems = JSON.parse(JSON.stringify(cartItems));
-
-    copyCartItems.push({
-      id: id,
-      title: title,
-      img: img,
-      count: count,
-      price: price,
-    });
-    setCartItems(copyCartItems);
-
-    // setCartItems( [...cartItems, { id, title, img, count, price}]);
-  }
-
-  // * 1. Agregar un item al carrito // addItem()
-  // 2. Eliminar todos los items del carrito -> clear
-  // * 3. removeItem(itemId, quantity) // Remover un item del cart por usando su id
-  // * 4. Contar los items del carrito // countItemsInCart()
-
   function countItemsInCart() {
-    let total = 0;
-    cartItems.forEach((item) => {
-      total += item.count;
-    });
-    return total;
+    let totalItems = 0;
+    cartItems.forEach((item) => (totalItems += item.count));
+    return totalItems;
   }
 
   return (
-    <cartContext.Provider
-      value={{
-        cartItems,
-        countItemsInCart,
-        addItem,
-        removeItem,
-      }}
-    >
+    <cartContext.Provider value={{ cartItems, addItem, countItemsInCart }}>
       {props.children}
     </cartContext.Provider>
   );
 }
 
 export default cartContext;
+
+export function useCart() {
+  return useContext(cartContext);
+}
