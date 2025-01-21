@@ -5,14 +5,11 @@ function ItemCount(props) {
 
   const handleAdd = () => {
     if (count === props.max) return;
-    console.log("Suma");
     setCount(count + 1);
-    // count = count +1
   };
 
   const handleSubstract = () => {
     // TODO: Antes de modificar el estado -> VALIDAR que no descienda de un min (1)
-    console.log("Resta");
     setCount(count - 1);
   };
 

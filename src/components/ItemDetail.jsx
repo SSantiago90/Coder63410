@@ -9,7 +9,6 @@ function ItemDetail(props) {
   const { addItem } = useContext(cartContext);
 
   function onSubmitCount(count) {
-    console.log(`Agregaste ${count} unidades al carrito`);
     addItem({ id, price, title, count, img });
     setIsAddedToCart(true);
   }

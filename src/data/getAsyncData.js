@@ -1,25 +1,19 @@
 import products from "./data"
 
-function getAsyncData() {
-  console.log("Solicitando datos")  
+function getAsyncData() { 
   const promiseData = new Promise( (resolve, reject) => { 
     const errorFatal = false;
 
     setTimeout( () => {
       if (errorFatal) reject("Algo salió mal!!!!")
-      console.log("Promesa Terminada")
       resolve(products)
     }, 500)     
   })
 
-  console.log("Promesa generada.")
-
   return promiseData;
 }
 
-export function getAsyncItemById(itemID) {
-  console.log("Solitando producto id....", itemID)
-  
+export function getAsyncItemById(itemID) {  
   const promiseData = new Promise( (resolve) => {    
 
     setTimeout( () => {      
@@ -29,14 +23,11 @@ export function getAsyncItemById(itemID) {
     }, 500)     
   })
 
-  console.log("Promesa generada.")
-
   return promiseData;
 }
 
 
 export function getAsyncItemsByCategory(catID) {
-  console.log("Solitando productos para... ", catID)
   
   const promiseData = new Promise( (resolve) => {    
 
@@ -47,27 +38,8 @@ export function getAsyncItemsByCategory(catID) {
     }, 500)     
   })
 
-  console.log("Promesa generada.")
 
   return promiseData;
 }
-
-/* export function getAsyncItemById(requestID) {
-  console.log("Solicitando datos para ID", requestID)  
-  const promiseData = new Promise( (resolve, reject) => { 
-    const errorFatal = false;
-
-    setTimeout( () => {
-      if (errorFatal) reject("Algo salió mal!!!!")
-      console.log("Promesa Terminada")
-      resolve(products.find(item => item.id === requestID))      
-    }, 2000)     
-  })
-
-  console.log("Promesa generada.")
-
-  return promiseData;
-} */
-  
 
 export default getAsyncData;
