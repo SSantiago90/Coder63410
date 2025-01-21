@@ -17,7 +17,7 @@ function ItemCount(props) {
   };
 
   function handleClick() {
-    props.onClick(count);
+    props.onSubmitCount(count);
   }
 
   return (
