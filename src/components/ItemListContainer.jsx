@@ -1,4 +1,4 @@
-import getAsyncData, { getAsyncItemsByCategory } from "../data/getAsyncData";
+import getAsyncData, { getAsyncItemsByCategory } from "../data/database";
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
@@ -23,7 +23,7 @@ function ItemListContainer(props) {
         .then((respuesta) => setProducts(respuesta))
         .catch((error) => alert(error));
     }
-  }, []);
+  }, [catid]);
 
   return (
     <div>
