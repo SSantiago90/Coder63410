@@ -6,6 +6,16 @@ const cartContext = createContext({ cartItems: [] });
 export function CartContextProvider(props) {
   const [cartItems, setCartItems] = useState([]);
 
+  function getTotalPrice() {
+    let totalPrice = 0;
+
+    cartItems.forEach((item) => {
+      totalPrice += item.count * item.price;
+    });
+
+    return totalPrice;
+  }
+
   function removeItem(id) {
     //cartItems.find // { item: 2, count: 4 },
     //cartItems.findIndex(10) //  1 -> splice
@@ -50,6 +60,7 @@ export function CartContextProvider(props) {
         countItemsInCart,
         addItem,
         removeItem,
+        getTotalPrice,
       }}
     >
       {props.children}

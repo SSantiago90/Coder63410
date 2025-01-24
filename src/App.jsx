@@ -5,17 +5,22 @@ import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContextProvider } from "./context/cartContext";
-import { useState } from "react";
 import CartContainer from "./components/CartContainer";
+import {
+  createDocument,
+  exportProductsToDB,
+  exportProductsWithBatch,
+} from "./data/database";
 
 function App() {
-  const [estado, setEstado] = useState(true);
-
   return (
     <CartContextProvider>
       <BrowserRouter>
         <NavBar />
-        <button onClick={() => setEstado(!estado)}>Render</button>
+        <button onClick={createDocument}>Crear documento</button>
+        <button onClick={exportProductsWithBatch}>
+          Exportar base de datos
+        </button>
 
         <Routes>
           <Route

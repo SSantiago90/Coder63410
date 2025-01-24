@@ -5,7 +5,7 @@ import cartContext from "../context/cartContext";
 function ItemDetail(props) {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
-  const { price, title, description, text, img, id, stock } = props;
+  const { price, title, description, text, img, stock, id } = props;
   const { addItem } = useContext(cartContext);
 
   function onSubmitCount(count) {

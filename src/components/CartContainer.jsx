@@ -1,28 +1,41 @@
 import { useContext } from "react";
 import cartContext from "../context/cartContext";
+import { createBuyOrder } from "../data/database";
 
 function CartContainer() {
-  const { cartItems, removeItem } = useContext(cartContext);
+  const { cartItems, removeItem, getTotalPrice } = useContext(cartContext);
 
-  // 1. conectarlo al context -> useContext, cartContext
-  // 2. mostrar el listado de productos ->
-  // 3. Mostrar de forma condicional un mensaje cuando el carrito esté vacío
-  // 4. Control para eliminar items del carrito
+  async function handleCheckout() {
+    const orderData = {
+      buyer: {
+        name: "Bruno",
+        email: "brunitotutor@yahoo",
+      },
+      items: cartItems,
+      total: getTotalPrice(),
+      date: new Date(),
+    };
+
+    const newOrderID = await createBuyOrder(orderData);
+
+    console.log("Compra realizada", newOrderID);
+  }
 
   return (
     <div>
       <h1>Tu carrito</h1>
       {cartItems.map((item) => (
-        <>
-          <div key={item.id}>
+        <div key={item.id}>
+          <div>
             <h3>{item.title}</h3>
             <p>Precio: ${item.price}</p>
             <p>Unidades: {item.count}</p>
             <button onClick={() => removeItem(item.id)}>Eliminar</button>
           </div>
           <hr />
-        </>
+        </div>
       ))}
+      <button onClick={handleCheckout}>Comprar</button>
     </div>
   );
 }

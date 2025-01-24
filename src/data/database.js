@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc, query, where} from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, getDoc, query, where, addDoc, setDoc, writeBatch} from "firebase/firestore";
+import products from "./data"
 
 const firebaseConfig = {
   apiKey: "AIzaSyCQ4S4zWHKrQOUzh_NacReHRF4uI_fZ8pA",
@@ -15,7 +16,6 @@ const app = initializeApp(firebaseConfig);
 
 // 2. Conexión con la base de datos de Firestore
 const db = getFirestore(app);
-
 
 export default async function getAsyncData() { 
   // leer todos los documentos de la colección "products"
@@ -62,3 +62,77 @@ export async function getAsyncItemsByCategory(catID) {
   return documentsData; // resolve(documentsData)
 
  }
+
+
+
+ // Solo para testing
+ export async function createDocument(){
+  // Add a new document with a generated id.  
+ /*  const docRef = await addDoc(collection(db, "products"), {
+    title: 'Calcetines Navideños',
+    price: 10,
+    stock: 100,
+    img: `https://picsum.photos/seed/5/240/180`,
+    category: 'regalos'
+  },); 
+  console.log("Document written with ID: ", docRef.id);
+  */
+
+  const newProductRef = doc(db, "products", "nuevo-id")
+  /* await setDoc(doc(db, "cities", "new-city-id"), data); */
+  // setDoc() no devuelve ningun valor
+  await setDoc(newProductRef,{
+    title: 'Calcetines Navideños',
+    price: 10,
+    stock: 100,
+    img: `https://picsum.photos/seed/5/240/180`,
+    category: 'regalos'
+  } )
+
+  console.log("Nuevo documento creado")
+ }
+
+ export async function exportProductsToDB(){
+    //for... of
+    // products.forEach( item => {} )
+    // 15 productos -> 15 writes en firestore
+    for(let item of products){    
+        delete item.id;
+        const docID = await addDoc( collection(db, "products"), item)
+        console.log("Creado documento", docID.id)
+    }
+ }
+
+export async function exportProductsWithBatch(){
+  const batch = writeBatch(db)
+
+  products.forEach( item => {
+    const itemid = `${item.id}`;
+    delete item.id
+    const newDoc = doc(db, "products", `item-${itemid}`);
+    batch.set(newDoc, item)
+  });
+
+  const commitRes = await batch.commit()
+  console.log("Commit de products completo", commitRes)
+}
+
+export async function createBuyOrder(orderData){
+  console.log(orderData);
+  const newOrderDoc = 
+    await addDoc(collection(db, "orders"), orderData); 
+
+  return newOrderDoc.id
+}
+
+export async function createBuyOrderWithStockUpdate(){
+    // Crear orden de compra
+    // update del stock (
+        // busquemos cada doc -> orderData.items
+        // cada documento update(doc, { stock: })
+}
+
+
+export async function updateStock(){
+
+}
