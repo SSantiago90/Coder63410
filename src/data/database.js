@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc, query, where, addDoc, setDoc, writeBatch} from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, getDoc, query, where, addDoc, setDoc, writeBatch, documentId} from "firebase/firestore";
 import products from "./data"
 
 const firebaseConfig = {
@@ -40,6 +40,7 @@ export async function getAsyncItemById(itemID) {
   const docRef = doc(db, "products",itemID )
   const docSnapshot = await getDoc(docRef);
   const docData = docSnapshot.data();
+  // docData.id = docSnapshot.id;
   return docData;
  }
 
@@ -125,13 +126,74 @@ export async function createBuyOrder(orderData){
   return newOrderDoc.id
 }
 
-export async function createBuyOrderWithStockUpdate(){
-    // Crear orden de compra
-    // update del stock (
-        // busquemos cada doc -> orderData.items
-        // cada documento update(doc, { stock: })
-}
+// TODO : SIN TESTEAR
+export async function createBuyOrderWithStockUpdate(order){
+  // Necesitamos acceder a los documentos de las colecciones "orders" como también "products"
+  const orderRef = collection(db, "order");
+  const productsRef = collection(db, "products");
 
+  //* 1. Creamos un nuevo lote de escritura ("writeBatch")
+  const batch = writeBatch(db);
+
+  //* 2. Actualizar cada item según la compra del usuario ("stock" menos "count")
+
+  //* 2-A hago un listado de los items a actualizar
+  const arrayIds = order.items.map((item) => item.id);
+  
+
+  //* 2-B obtengo de Firestore los datos de los productos a actualizar utilizando una query  
+  // la "query" filtra los productos donde: el id del documento (documentId()) esté incluido (in) el array creado (arrayIds)
+  // "documentId()" es un helper de la librería de firestore que permite especificar el "id" de los documentos en una query
+  // "in" es un operador de comparación que sirve para buscar un campo dentro de un array de posibles valores
+  const q = query(productsRef, where(documentId(), "in", arrayIds));
+  const querySnaphot = await getDocs(q);
+  const docsToUpdate = querySnaphot.docs;
+
+  // creamos un array donde almacenar todos los productos que no tengan stock
+  let itemsSinStock = [];
+
+  //* . Por cada documento que se necesite actualizar, comprobamos si hay stock suficiente para la compra
+  docsToUpdate.forEach((doc) => {
+    //* 3.A Obtengo el stock guardado según la base de datos
+    let { stock } = doc.data();
+
+    //* 3.B Encontramos el item "iterado" en el carrito de compras que creó el usuario
+    let itemInCart = order.items.find((item) => item.id === doc.id);
+    let countInCart = itemInCart.count;
+
+    //* 3.C Calculamos la cantidad resultante si se efectuara la compra
+    let newStock = stock - countInCart;
+
+    //* 4. Validamos ->  ¿Hay stock suficiente?         
+    if (newStock < 0) {
+      // si es así, sumamos el item al array de "items sin stock"
+      itemsSinStock.push(doc.id);
+    }
+     else {
+          // sino, agregamos una operación de "update" al "batch" de escritura
+          // en batch.update modificamos en el documento el valor de "stock" de dicho item
+          batch.update(doc.ref, { stock: newStock });
+      }
+  });
+  
+  //* 5. Si "items sin stock" tiene al menos una entrada -> generamos un error, deteniendo la ejecución del script
+
+  // creamos un string mostrando todos los "titles" de los items sin unidades disponibles
+  const itemsSinStockString = itemsSinStock.map( item => item.title ).join(", ");
+  
+  if (itemsSinStock.length >= 1){
+    throw new Error(`Stock no disponible para los productos ${itemsSinStockString}`);    
+  }
+  // LLegado este punto, podemos estar seguros que todos los productos cuentan con stock suficiente
+  else {
+    //* 6.  hacemos el "commit" del batch  actualizando todos los documentos y creamos la orden de compra
+    await batch.commit();
+
+    //* 7. Generamos la orden de compra    
+    let newOrder = await addDoc(orderRef, order);
+    return newOrder.id;
+ }
+}
 
 export async function updateStock(){
 
