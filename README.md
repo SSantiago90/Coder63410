@@ -49,3 +49,9 @@ _muestra en la terminal, los archivos y carpetas_
 
 - #### Vite JS: https://es.vitejs.dev/guide/#inicia-tu-primer-proyecto-vite
 - #### React: https://es.react.dev/learn
+
+## Crear Markdown README.md
+
+- Objetivo del projecto
+- Motivación ¿por qué lo crearon?
+- Herramientas que utilizaron
