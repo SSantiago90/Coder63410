@@ -3,12 +3,12 @@ import { getFirestore, collection, getDocs, doc, getDoc, query, where, addDoc, s
 import products from "./data"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCQ4S4zWHKrQOUzh_NacReHRF4uI_fZ8pA",
+  apiKey: import.meta.env.VITE_FIRESTORE_APIKEY,
+  appId: import.meta.env.VITE_FIRESTORE_APPID,
   authDomain: "react-ecommerce-f00e3.firebaseapp.com",
   projectId: "react-ecommerce-f00e3",
   storageBucket: "react-ecommerce-f00e3.firebasestorage.app",
   messagingSenderId: "138011420911",
-  appId: "1:138011420911:web:1a41b721ec94ac8884931a"
 };
 
 // 1. Conexión con Firebase
